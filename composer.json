@@ -1,0 +1,33 @@
+{
+  "name": "tyorkin/demo-parser-application",
+  "type": "tyorkin-demo",
+  "description": "Tyorkin Demo Parser Application",
+  "keywords": ["tyorkin", "demo parser"],
+  "authors": [
+    {
+      "name": "Alexander Monov",
+      "email": "sanamonov@gmail.com"
+    }
+  ],
+  "require": {
+    "php": ">=7.1",
+    "ext-mongodb": "^1.2.0",
+    "tyorkin/demo-parser": "dev-master@dev"
+  },
+  "repositories": [{
+    "type": "vcs",
+    "url": "git@github.com:tyorkin/demo-parser.git"
+  }],
+  "scripts": {
+    "post-update-cmd": [
+      "ComposerHook::generateConfig"
+    ],
+    "post-install-cmd": [
+      "ComposerHook::generateConfig"
+    ]
+  },
+  "autoload": {
+    "classmap": ["app/"],
+    "psr-4": { "Tyorkin\\HyperParserApplication\\": "app" }
+  }
+}

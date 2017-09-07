@@ -1,0 +1,30 @@
+<?php
+namespace Tyorkin\HyperParserApplication\Config;
+
+
+class Config
+{
+    private static $mongodbHost = "%mongodbHost%";
+    private static $mongodbName = "%mongodbName%";
+    private static $mongodbUser = "%mongodbUser%";
+    private static $mongodbPort = "%mongodbPort%";
+    private static $mongodbPassword = "%mongodbPassword%";
+
+    private static $fileReportDir = "%fileReportDir%";
+
+    public static function getMongoConfig()
+    {
+        return array(
+            "dbHost" => self::$mongodbHost,
+            "dbName" => self::$mongodbName,
+            "dbUser" => self::$mongodbUser,
+            "dbPort" => self::$mongodbPort,
+            "dbPassword" => self::$mongodbPassword
+        );
+    }
+
+    public static function getFileReportDir()
+    {
+        return self::$fileReportDir;
+    }
+}

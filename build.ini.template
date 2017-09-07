@@ -1,0 +1,6 @@
+mongodbHost = "localhost"
+mongodbName = "demoparser"
+mongodbUser = ""
+mongodbPort = "27017"
+mongodbPassword = ""
+fileReportDir = ""

@@ -1,0 +1,15 @@
+.idea
+# Parameters
+/build.ini
+/app/Config/Config.php
+
+# Generated files directory
+/reports/
+
+# Managed by Composer
+/vendor/
+
+
+# Composer
+/composer.lock
+/composer.phar
