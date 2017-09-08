@@ -2,7 +2,6 @@
 
 namespace Tyorkin\HyperParserApplication\Storage;
 
-
 interface SimpleStorageInterface
 {
     /**

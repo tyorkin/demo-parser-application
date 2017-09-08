@@ -9,9 +9,6 @@ use Tyorkin\HyperParserApplication\Manager\SitemapManager;
 
 class ParseCommand implements CommandInterface
 {
-    /**
-     *
-     */
     const NAME = "parse";
 
     /**
@@ -49,6 +46,5 @@ class ParseCommand implements CommandInterface
     {
         return self::NAME;
     }
-
 
 }

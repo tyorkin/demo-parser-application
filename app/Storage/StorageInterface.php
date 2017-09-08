@@ -2,11 +2,8 @@
 
 namespace Tyorkin\HyperParserApplication\Storage;
 
-use Tyorkin\HyperParserApplication\Document\DocumentInterface;
-
 interface StorageInterface extends SimpleStorageInterface
 {
-
     /**
      * Return entity from the storage by filter
      * @param array $filter

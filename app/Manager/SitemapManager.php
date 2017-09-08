@@ -2,12 +2,12 @@
 
 namespace Tyorkin\HyperParserApplication\Manager;
 
-use Tyorkin\HyperParserApplication\Document\Url;
-use Tyorkin\DemoParser\Provider\UrlProvider;
-use Tyorkin\DemoParser\Provider\SitemapProvider;
 use Tyorkin\DemoParser\Client\SimpleClient;
-use Tyorkin\HyperParserApplication\Storage\UrlMongoStorage;
 use Tyorkin\DemoParser\Exception\BadRequestException;
+use Tyorkin\DemoParser\Provider\SitemapProvider;
+use Tyorkin\DemoParser\Provider\UrlProvider;
+use Tyorkin\HyperParserApplication\Document\Url;
+use Tyorkin\HyperParserApplication\Storage\UrlMongoStorage;
 
 class SitemapManager
 {
@@ -79,7 +79,6 @@ class SitemapManager
             $sitemapUrlList = $this->sitemapProvider->getUrlListFromSitemap($sitemapContent);
             $urlListFromSitemap = array_merge($urlListFromSitemap, $sitemapUrlList);
         }
-
 
         foreach ($urlListFromSitemap as $url) {
             $filter = ['url' => $url];

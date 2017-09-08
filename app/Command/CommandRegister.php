@@ -2,7 +2,6 @@
 
 namespace Tyorkin\HyperParserApplication\Command;
 
-
 class CommandRegister
 {
     private $commands = [];
@@ -21,9 +20,20 @@ class CommandRegister
         $command = $this->findCommand($commandName);
         if ($command) {
             $command->execute($params);
+
             return true;
         }
+
         return false;
+    }
+
+    private function help()
+    {
+        echo "Available commands:\n";
+        foreach ($this->commands as $command) {
+            $description = $command->getDescription();
+            echo $description . "\n\n";
+        }
     }
 
     private function findCommand(string $commandName): ?CommandInterface
@@ -36,14 +46,5 @@ class CommandRegister
         }
 
         return null;
-    }
-
-    private function help()
-    {
-        echo "Available commands:\n";
-        foreach ($this->commands as $command) {
-            $description = $command->getDescription();
-            echo $description."\n\n";
-        }
     }
 }

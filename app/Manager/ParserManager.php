@@ -2,12 +2,12 @@
 
 namespace Tyorkin\HyperParserApplication\Manager;
 
-use Tyorkin\HyperParserApplication\Document\Url;
-use Tyorkin\HyperParserApplication\Storage\UrlMongoStorage;
-use Tyorkin\DemoParser\Provider\UrlProvider;
-use Tyorkin\DemoParser\Provider\TagProvider;
 use Tyorkin\DemoParser\Client\SimpleClient;
 use Tyorkin\DemoParser\Exception\BadRequestException;
+use Tyorkin\DemoParser\Provider\TagProvider;
+use Tyorkin\DemoParser\Provider\UrlProvider;
+use Tyorkin\HyperParserApplication\Document\Url;
+use Tyorkin\HyperParserApplication\Storage\UrlMongoStorage;
 
 class ParserManager
 {
@@ -76,7 +76,8 @@ class ParserManager
         $urlDocument->setImgTagCount($this->tagProvider->getTagQuantity('img', $urlContent));
         $urlDocument->setATagCount($this->tagProvider->getTagQuantity('a', $urlContent));
         $urlDocument->setPTagsTextLength($this->tagProvider->getAllTagTextLength('p', $urlContent));
-        $urlDocument->setPTagsTextLengthWithoutSpaces($this->tagProvider->getAllTagTextLengthWithoutSpaces('p', $urlContent));
+        $urlDocument->setPTagsTextLengthWithoutSpaces($this->tagProvider->getAllTagTextLengthWithoutSpaces('p',
+            $urlContent));
         $urlDocument->setIsProcessed(true);
         $filter = ['url' => $urlDocument->getUrl()];
         $this->storage->update($filter, $urlDocument);

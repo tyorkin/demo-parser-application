@@ -2,16 +2,13 @@
 
 namespace Tyorkin\HyperParserApplication\Command;
 
-
 use RecursiveDirectoryIterator;
 use RecursiveIteratorIterator;
 use RegexIterator;
 
 class HelpCommand implements CommandInterface
 {
-    /**
-     *
-     */
+   
     const NAME = 'help';
 
     /**

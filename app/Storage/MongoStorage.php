@@ -2,8 +2,8 @@
 
 namespace Tyorkin\HyperParserApplication\Storage;
 
-use Tyorkin\HyperParserApplication\Config\Config;
 use MongoDB\Driver\Manager;
+use Tyorkin\HyperParserApplication\Config\Config;
 
 abstract class MongoStorage implements StorageInterface
 {
@@ -18,7 +18,9 @@ abstract class MongoStorage implements StorageInterface
 
     public function __construct()
     {
-        if (self::$manager != null) return;
+        if (self::$manager != null) {
+            return;
+        }
         try {
             $dbConfig = Config::getMongoConfig();
             if ($dbConfig['dbUser'] && $dbConfig['dbPassword']) {

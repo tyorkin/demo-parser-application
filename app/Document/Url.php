@@ -2,10 +2,8 @@
 
 namespace Tyorkin\HyperParserApplication\Document;
 
-use MongoDB\BSON\Unserializable;
 use MongoDB\BSON\Serializable;
-use MongoDB\BSON\ObjectId;
-
+use MongoDB\BSON\Unserializable;
 
 class Url implements DocumentInterface, Unserializable, Serializable
 {
@@ -51,191 +49,6 @@ class Url implements DocumentInterface, Unserializable, Serializable
      */
     private $isFoundInSitemap = false;
 
-
-    /**
-     * @return string
-     */
-    public function getUrl()
-    {
-        return $this->url;
-    }
-
-    /**
-     * @param string $url
-     * @return Url
-     */
-    public function setUrl($url)
-    {
-        $this->url = (string) $url;
-        return $this;
-    }
-
-    /**
-     * @return int
-     */
-    public function getTitleTagLength()
-    {
-        return $this->titleTagLength;
-    }
-
-    /**
-     * @param int $titleTagLength
-     * @return Url
-     */
-    public function setTitleTagLength($titleTagLength)
-    {
-        $this->titleTagLength = (int) $titleTagLength;
-        return $this;
-    }
-
-    /**
-     * @return int
-     */
-    public function getDescriptionTagLength()
-    {
-        return $this->descriptionTagLength;
-    }
-
-    /**
-     * @param int $descriptionTagLength
-     * @return Url
-     */
-    public function setDescriptionTagLength($descriptionTagLength)
-    {
-        $this->descriptionTagLength = (int) $descriptionTagLength;
-        return $this;
-    }
-
-    /**
-     * @return int
-     */
-    public function getH1TagLength()
-    {
-        return $this->h1TagLength;
-    }
-
-    /**
-     * @param int $h1TagLength
-     * @return Url
-     */
-    public function setH1TagLength($h1TagLength)
-    {
-        $this->h1TagLength = (int) $h1TagLength;
-        return $this;
-    }
-
-    /**
-     * @return int
-     */
-    public function getImgTagCount()
-    {
-        return $this->imgTagCount;
-    }
-
-    /**
-     * @param int $imgTagCount
-     * @return Url
-     */
-    public function setImgTagCount($imgTagCount)
-    {
-        $this->imgTagCount = (int) $imgTagCount;
-        return $this;
-    }
-
-    /**
-     * @return int
-     */
-    public function getATagCount()
-    {
-        return $this->aTagCount;
-    }
-
-    /**
-     * @param int $aTagCount
-     * @return Url
-     */
-    public function setATagCount($aTagCount)
-    {
-        $this->aTagCount = (int) $aTagCount;
-        return $this;
-    }
-
-    /**
-     * @return int
-     */
-    public function getPTagsTextLength()
-    {
-        return $this->pTagsTextLength;
-    }
-
-    /**
-     * @param int $pTagsTextLength
-     * @return Url
-     */
-    public function setPTagsTextLength($pTagsTextLength)
-    {
-        $this->pTagsTextLength = (int) $pTagsTextLength;
-        return $this;
-    }
-
-    /**
-     * @return bool
-     */
-    public function isProcessed()
-    {
-        return $this->isProcessed;
-    }
-
-    /**
-     * @param bool $isProcessed
-     * @return Url
-     */
-    public function setIsProcessed($isProcessed)
-    {
-        $this->isProcessed = (bool) $isProcessed;
-        return $this;
-    }
-
-    /**
-     * @return int
-     */
-    public function getPTagsTextLengthWithoutSpaces(): int
-    {
-        return $this->pTagsTextLengthWithoutSpaces;
-    }
-
-    /**
-     * @param int $pTagsTextLengthWithoutSpaces
-     *
-     * @return self
-     */
-    public function setPTagsTextLengthWithoutSpaces(int $pTagsTextLengthWithoutSpaces)
-    {
-        $this->pTagsTextLengthWithoutSpaces = $pTagsTextLengthWithoutSpaces;
-        return $this;
-    }
-
-    /**
-     * @return bool
-     */
-    public function isFoundInSitemap(): bool
-    {
-        return $this->isFoundInSitemap;
-    }
-
-    /**
-     * @param bool $isFoundInSitemap
-     *
-     * @return self
-     */
-    public function setIsFoundInSitemap(bool $isFoundInSitemap)
-    {
-        $this->isFoundInSitemap = $isFoundInSitemap;
-        return $this;
-    }
-
-
-
     public function bsonUnserialize(array $data)
     {
         //$this->id = $data['_id'];
@@ -272,5 +85,196 @@ class Url implements DocumentInterface, Unserializable, Serializable
         return $data;
     }
 
+    /**
+     * @return string
+     */
+    public function getUrl()
+    {
+        return $this->url;
+    }
+
+    /**
+     * @param string $url
+     * @return Url
+     */
+    public function setUrl($url)
+    {
+        $this->url = (string)$url;
+
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getTitleTagLength()
+    {
+        return $this->titleTagLength;
+    }
+
+    /**
+     * @param int $titleTagLength
+     * @return Url
+     */
+    public function setTitleTagLength($titleTagLength)
+    {
+        $this->titleTagLength = (int)$titleTagLength;
+
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getDescriptionTagLength()
+    {
+        return $this->descriptionTagLength;
+    }
+
+    /**
+     * @param int $descriptionTagLength
+     * @return Url
+     */
+    public function setDescriptionTagLength($descriptionTagLength)
+    {
+        $this->descriptionTagLength = (int)$descriptionTagLength;
+
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getH1TagLength()
+    {
+        return $this->h1TagLength;
+    }
+
+    /**
+     * @param int $h1TagLength
+     * @return Url
+     */
+    public function setH1TagLength($h1TagLength)
+    {
+        $this->h1TagLength = (int)$h1TagLength;
+
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getImgTagCount()
+    {
+        return $this->imgTagCount;
+    }
+
+    /**
+     * @param int $imgTagCount
+     * @return Url
+     */
+    public function setImgTagCount($imgTagCount)
+    {
+        $this->imgTagCount = (int)$imgTagCount;
+
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getATagCount()
+    {
+        return $this->aTagCount;
+    }
+
+    /**
+     * @param int $aTagCount
+     * @return Url
+     */
+    public function setATagCount($aTagCount)
+    {
+        $this->aTagCount = (int)$aTagCount;
+
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getPTagsTextLength()
+    {
+        return $this->pTagsTextLength;
+    }
+
+    /**
+     * @param int $pTagsTextLength
+     * @return Url
+     */
+    public function setPTagsTextLength($pTagsTextLength)
+    {
+        $this->pTagsTextLength = (int)$pTagsTextLength;
+
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getPTagsTextLengthWithoutSpaces(): int
+    {
+        return $this->pTagsTextLengthWithoutSpaces;
+    }
+
+    /**
+     * @param int $pTagsTextLengthWithoutSpaces
+     *
+     * @return self
+     */
+    public function setPTagsTextLengthWithoutSpaces(int $pTagsTextLengthWithoutSpaces)
+    {
+        $this->pTagsTextLengthWithoutSpaces = $pTagsTextLengthWithoutSpaces;
+
+        return $this;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isProcessed()
+    {
+        return $this->isProcessed;
+    }
+
+    /**
+     * @param bool $isProcessed
+     * @return Url
+     */
+    public function setIsProcessed($isProcessed)
+    {
+        $this->isProcessed = (bool)$isProcessed;
+
+        return $this;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isFoundInSitemap(): bool
+    {
+        return $this->isFoundInSitemap;
+    }
+
+    /**
+     * @param bool $isFoundInSitemap
+     *
+     * @return self
+     */
+    public function setIsFoundInSitemap(bool $isFoundInSitemap)
+    {
+        $this->isFoundInSitemap = $isFoundInSitemap;
+
+        return $this;
+    }
 
 }

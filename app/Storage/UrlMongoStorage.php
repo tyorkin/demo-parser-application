@@ -17,6 +17,9 @@ class UrlMongoStorage extends MongoStorage
      */
     protected $namespace;
 
+    /**
+     * UrlMongoStorage constructor.
+     */
     public function __construct()
     {
         parent::__construct();
@@ -50,7 +53,11 @@ class UrlMongoStorage extends MongoStorage
         try {
             $query = new Query([]);
             $cursor = self::$manager->executeQuery($this->namespace, $query);
-            $cursor->setTypeMap(['root' => Url::class/*, 'document' => 'Tyorkin\HyperParserApplication\Document\Url'*/, 'array' => 'array']);
+            $cursor->setTypeMap([
+                'root' => Url::class
+                /*, 'document' => 'Tyorkin\HyperParserApplication\Document\Url'*/,
+                'array' => 'array'
+            ]);
             $result = $cursor->toArray();
         } catch (MongoException $e) {
             $result = null;
@@ -85,7 +92,6 @@ class UrlMongoStorage extends MongoStorage
 
         return $result;
 
-
     }
 
     public function delete(array $filter)
@@ -102,6 +108,5 @@ class UrlMongoStorage extends MongoStorage
         $bulk->delete([]);
         self::$manager->executeBulkWrite($this->namespace, $bulk);
     }
-
 
 }

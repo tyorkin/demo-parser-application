@@ -2,7 +2,6 @@
 
 namespace Tyorkin\HyperParserApplication\Storage;
 
-
 use Tyorkin\HyperParserApplication\Config\Config;
 
 abstract class FileStorage implements SimpleStorageInterface

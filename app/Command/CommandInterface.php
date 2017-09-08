@@ -2,7 +2,6 @@
 
 namespace Tyorkin\HyperParserApplication\Command;
 
-
 interface CommandInterface
 {
     /**

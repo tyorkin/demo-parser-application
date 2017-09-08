@@ -2,7 +2,6 @@
 
 namespace Tyorkin\HyperParserApplication\Log;
 
-
 class UrlConsoleLog implements ConsoleLogInterface
 {
     const MASK = "|%-100.100s |%-14.14s |%-20.20s |%-11.11s |%-11.11s |%-9.9s |%-15.15s |%-26.26s |%-18.18s |\n";
@@ -14,6 +13,7 @@ class UrlConsoleLog implements ConsoleLogInterface
     {
         if (!is_array($data) || count($data) != 10) {
             print_r($data);
+
             return;
         }
         foreach ($data as $key => $field) {
@@ -33,6 +33,5 @@ class UrlConsoleLog implements ConsoleLogInterface
     {
         echo(str_repeat('-', 243) . "\n");
     }
-
 
 }

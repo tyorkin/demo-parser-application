@@ -94,9 +94,6 @@ class UrlFileStorage extends FileStorage
         fclose($f);
     }
 
-    /**
-     *
-     */
     public function deleteAll()
     {
         $f = fopen($this->fileName, "w+");
@@ -104,6 +101,5 @@ class UrlFileStorage extends FileStorage
             fclose($f);
         }
     }
-
 
 }

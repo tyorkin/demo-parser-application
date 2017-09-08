@@ -2,17 +2,11 @@
 
 namespace Tyorkin\HyperParserApplication\Command;
 
-
 use Tyorkin\HyperParserApplication\Exception\CommandParamException;
-use Tyorkin\HyperParserApplication\Manager\ParserManager;
 use Tyorkin\HyperParserApplication\Manager\UrlConsoleLogManager;
-use Tyorkin\HyperParserApplication\Storage\UrlFileStorage;
 
 class ReportCommand implements CommandInterface
 {
-    /**
-     *
-     */
     const NAME = 'report';
 
     /**
@@ -44,6 +38,5 @@ class ReportCommand implements CommandInterface
     {
         return self::NAME;
     }
-
 
 }

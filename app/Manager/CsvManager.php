@@ -2,7 +2,6 @@
 
 namespace Tyorkin\HyperParserApplication\Manager;
 
-
 use Tyorkin\HyperParserApplication\Storage\UrlFileStorage;
 use Tyorkin\HyperParserApplication\Storage\UrlMongoStorage;
 
