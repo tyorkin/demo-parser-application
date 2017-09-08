@@ -7,11 +7,26 @@ use Tyorkin\HyperParserApplication\Config\Config;
 
 abstract class FileStorage implements SimpleStorageInterface
 {
+    /**
+     * @var string
+     */
     protected $fileName = '';
 
-    public function __construct($fileName)
+    /**
+     * FileStorage constructor.
+     * @param string $fileName
+     */
+    public function __construct(string $fileName)
     {
-        $this->fileName = Config::getFileReportDir().'/'. $fileName;
+        $this->fileName = Config::getFileReportDir() . '/' . $fileName;
+    }
+
+    /**
+     * @return string
+     */
+    public function getFileName(): string
+    {
+        return $this->fileName;
     }
 
 }

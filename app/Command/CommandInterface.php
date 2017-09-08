@@ -5,7 +5,18 @@ namespace Tyorkin\HyperParserApplication\Command;
 
 interface CommandInterface
 {
+    /**
+     * @param array $params
+     */
     public function execute(array $params = []);
-    public function getName();
-    public function getDescription();
+
+    /**
+     * @return string
+     */
+    public function getName(): string;
+
+    /**
+     * @return string
+     */
+    public function getDescription(): string;
 }

@@ -9,8 +9,14 @@ use RegexIterator;
 
 class HelpCommand implements CommandInterface
 {
+    /**
+     *
+     */
     const NAME = 'help';
 
+    /**
+     * @param array $params
+     */
     public function execute(array $params = [])
     {
         echo "Available commands:\n";
@@ -35,7 +41,7 @@ class HelpCommand implements CommandInterface
                 }
                 if (T_CLASS === $tokens[$index][0]) {
                     $index += 2; // Skip class keyword and whitespace
-                    $commandClassList[] = $namespace.'\\'.$tokens[$index][1];
+                    $commandClassList[] = $namespace . '\\' . $tokens[$index][1];
                 }
             }
         }
@@ -44,18 +50,24 @@ class HelpCommand implements CommandInterface
             if (class_exists($commandClass) && is_callable(array($commandClass, 'getDescription'))) {
                 /** @var CommandInterface $command */
                 $command = new $commandClass();
-                echo ($command->getDescription());
+                echo($command->getDescription());
                 echo "\n";
             }
         }
     }
 
-    public function getDescription()
+    /**
+     * @return string
+     */
+    public function getDescription(): string
     {
         return "{$this->getName()} - Return list of available commands.";
     }
 
-    public function getName()
+    /**
+     * @return string
+     */
+    public function getName(): string
     {
         return self::NAME;
     }

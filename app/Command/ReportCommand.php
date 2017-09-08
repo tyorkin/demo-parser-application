@@ -10,8 +10,14 @@ use Tyorkin\HyperParserApplication\Storage\UrlFileStorage;
 
 class ReportCommand implements CommandInterface
 {
+    /**
+     *
+     */
     const NAME = 'report';
 
+    /**
+     * @param array $params
+     */
     public function execute(array $params = [])
     {
         if (!isset($params[0])) {
@@ -23,12 +29,18 @@ class ReportCommand implements CommandInterface
         $logManager->log($domain);
     }
 
-    public function getDescription()
+    /**
+     * @return string
+     */
+    public function getDescription(): string
     {
         return "{$this->getName()} %domain% - Show report for domain.";
     }
 
-    public function getName()
+    /**
+     * @return string
+     */
+    public function getName(): string
     {
         return self::NAME;
     }

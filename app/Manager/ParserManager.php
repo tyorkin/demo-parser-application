@@ -11,11 +11,26 @@ use Tyorkin\DemoParser\Exception\BadRequestException;
 
 class ParserManager
 {
+    /**
+     * @var UrlMongoStorage
+     */
     private $storage;
+    /**
+     * @var SimpleClient
+     */
     private $client;
+    /**
+     * @var UrlProvider
+     */
     private $urlProvider;
+    /**
+     * @var TagProvider
+     */
     private $tagProvider;
 
+    /**
+     * ParserManager constructor.
+     */
     public function __construct()
     {
         $this->storage = new UrlMongoStorage();
@@ -24,6 +39,9 @@ class ParserManager
         $this->tagProvider = new TagProvider();
     }
 
+    /**
+     * @param string $startUrl
+     */
     public function parseSite(string $startUrl)
     {
 
@@ -38,11 +56,9 @@ class ParserManager
         }
     }
 
-    public function getDomainFromUrl(string $url) {
-        $domain = $this->urlProvider->getDomainFromUrl($url);
-
-        return $domain;
-    }
+    /**
+     * @param Url $urlDocument
+     */
     private function processUrl(Url $urlDocument)
     {
         $urlContent = '';
@@ -78,5 +94,16 @@ class ParserManager
             $newUrlDocument->setUrl($newUrl);
             $this->storage->insert($newUrlDocument);
         }
+    }
+
+    /**
+     * @param string $url
+     * @return string
+     */
+    public function getDomainFromUrl(string $url): string
+    {
+        $domain = $this->urlProvider->getDomainFromUrl($url);
+
+        return $domain;
     }
 }

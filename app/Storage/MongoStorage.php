@@ -7,7 +7,13 @@ use MongoDB\Driver\Manager;
 
 abstract class MongoStorage implements StorageInterface
 {
+    /**
+     * @var Manager|null
+     */
     static protected $manager = null;
+    /**
+     * @var string|null
+     */
     static protected $database = null;
 
     public function __construct()

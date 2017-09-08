@@ -9,8 +9,14 @@ use Tyorkin\HyperParserApplication\Manager\SitemapManager;
 
 class ParseCommand implements CommandInterface
 {
+    /**
+     *
+     */
     const NAME = "parse";
 
+    /**
+     * @param array $params
+     */
     public function execute(array $params = [])
     {
         if (!isset($params[0])) {
@@ -24,16 +30,22 @@ class ParseCommand implements CommandInterface
         $domain = $parserManager->getDomainFromUrl($url);
         $csvManager = new CsvManager();
         $fileName = $csvManager->writeFromDbToFile($domain);
-        echo $fileName."\n";
+        echo $fileName . "\n";
 
     }
 
-    public function getDescription()
+    /**
+     * @return string
+     */
+    public function getDescription(): string
     {
         return "{$this->getName()} %url% - Run parser with url start page.";
     }
 
-    public function getName()
+    /**
+     * @return string
+     */
+    public function getName(): string
     {
         return self::NAME;
     }

@@ -12,11 +12,26 @@ use Tyorkin\DemoParser\Exception\BadRequestException;
 class SitemapManager
 {
 
+    /**
+     * @var UrlMongoStorage
+     */
     private $storage;
+    /**
+     * @var SimpleClient
+     */
     private $client;
+    /**
+     * @var UrlProvider
+     */
     private $urlProvider;
+    /**
+     * @var SitemapProvider
+     */
     private $sitemapProvider;
 
+    /**
+     * SitemapManager constructor.
+     */
     public function __construct()
     {
 
@@ -27,6 +42,9 @@ class SitemapManager
 
     }
 
+    /**
+     * @param $siteUrl
+     */
     public function parseSitemap($siteUrl)
     {
         $domainName = $this->urlProvider->getDomainFromUrl($siteUrl);

@@ -12,6 +12,9 @@ class UrlMongoStorage extends MongoStorage
 
     const COLLECTION = 'url';
 
+    /**
+     * @var string
+     */
     protected $namespace;
 
     public function __construct()
@@ -80,7 +83,7 @@ class UrlMongoStorage extends MongoStorage
 
         $result = $updateResult ? true : false;
 
-        return  $result;
+        return $result;
 
 
     }

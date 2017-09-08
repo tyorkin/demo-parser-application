@@ -7,18 +7,28 @@ use Tyorkin\HyperParserApplication\Storage\UrlFileStorage;
 
 class UrlConsoleLogManager
 {
+    /**
+     * @var UrlConsoleLog
+     */
     private $logger;
+
+    /**
+     * UrlConsoleLogManager constructor.
+     */
     public function __construct()
     {
         $this->logger = new UrlConsoleLog();
     }
 
+    /**
+     * @param string $domain
+     */
     public function log($domain)
     {
         $parserManager = new ParserManager();
         $domainName = $parserManager->getDomainFromUrl($domain);
-        $fileName = $domainName . '.csv';
-        $urlFileStorage = new UrlFileStorage($fileName);
+        //$fileName = $domainName . '.csv';
+        $urlFileStorage = new UrlFileStorage($domainName);
         $urlList = $urlFileStorage->findAll();
         if (!count($urlList)) {
             return;

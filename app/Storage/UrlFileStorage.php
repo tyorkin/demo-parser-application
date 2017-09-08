@@ -8,13 +8,24 @@ use Tyorkin\HyperParserApplication\Exception\UrlFileStorageException;
 class UrlFileStorage extends FileStorage
 {
 
+    /**
+     * @var null
+     */
     private $header = null;
 
+    /**
+     * UrlFileStorage constructor.
+     * @param string $fileName
+     */
     public function __construct($fileName)
     {
+        $fileName = $fileName . 'csv';
         parent::__construct($fileName);
     }
 
+    /**
+     * @return array
+     */
     public function findAll()
     {
         $entityArray = [];
@@ -30,6 +41,10 @@ class UrlFileStorage extends FileStorage
         return $entityArray;
     }
 
+    /**
+     * @param $record
+     * @return Url
+     */
     private function arrayToUrlEntity($record)
     {
         $url = new Url();
@@ -40,6 +55,9 @@ class UrlFileStorage extends FileStorage
         return $url;
     }
 
+    /**
+     * @return array|null
+     */
     private function getFileHeader()
     {
         if ($this->header) {
@@ -76,6 +94,9 @@ class UrlFileStorage extends FileStorage
         fclose($f);
     }
 
+    /**
+     *
+     */
     public function deleteAll()
     {
         $f = fopen($this->fileName, "w+");

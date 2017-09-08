@@ -251,9 +251,13 @@ class Url implements DocumentInterface, Unserializable, Serializable
         $this->setIsFoundInSitemap($data['isFoundInSitemap']);
     }
 
-    public function bsonSerialize()
+    /**
+     * @return array
+     */
+    public function bsonSerialize(): array
     {
         //$data['_id'] = $this->id ? $this->id : new ObjectId();
+        $data = [];
         $data['url'] = $this->getUrl();
         $data['titleTagLength'] = $this->getTitleTagLength();
         $data['descriptionTagLength'] = $this->getDescriptionTagLength();
