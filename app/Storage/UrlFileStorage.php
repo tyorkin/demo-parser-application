@@ -19,7 +19,7 @@ class UrlFileStorage extends FileStorage
      */
     public function __construct($fileName)
     {
-        $fileName = $fileName . 'csv';
+        $fileName = $fileName . '.csv';
         parent::__construct($fileName);
     }
 
